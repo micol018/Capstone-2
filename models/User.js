@@ -4,7 +4,7 @@ let userSchema = new mongoose.Schema({
 
 	firstName: {
 		type: String,
-		required: [true, "First Name is required"]
+		required: [true, "First Name is required"],
 	},
 
 	lastName: {
@@ -14,7 +14,8 @@ let userSchema = new mongoose.Schema({
 
 	email: {
 		type: String,
-		required: [true, "Email is required"]
+		required: [true, "Email is required"],
+		unique: [true, "Email is already registered"]
 	},
 
 	password: {

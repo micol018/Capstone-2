@@ -58,10 +58,61 @@ module.exports.loginUser = (req, res) => {
 	.catch(err => res.send(err));
 };
 
-// See All Users
-module.exports.seeAllUsers = (req, res) => {
+// Set User As Admin
+module.exports.updateAdmin = (req, res) => {
+
+	let updates = {
+		isAdmin: true
+	}
+
+	User.findByIdAndUpdate(req.params.id, updates, {new: true})
+	.then(updatedUser => res.send(updatedUser))
+	.catch(err => res.send(err));
+};
+
+// Get All Users
+module.exports.getAllUsers = (req, res) => {
 
 	User.find({})
+	.then(result => res.send(result))
+	.catch(err => res.send(err));
+};
+
+// Get Single User Details by Admin 
+module.exports.getSingleUser = (req, res) => {
+
+	User.findById(req.params.id)
+	.then(result => res.send(result))
+	.catch(err => res.send(err));
+};
+
+// Get Logged In User Details
+module.exports.getUserDetails = (req, res) => {
+
+	User.findById(req.user.id)
+	.then(result => res.send(result))
+	.catch(err => res.send(err));
+};
+
+// Update Logged In User Details
+module.exports.updateUserDetails = (req, res) => { 
+
+	let updates = {
+
+		firstName: req.body.firstName,
+		lastName: req.body.lastName,
+		mobileNo: req.body.mobileNo
+	}
+
+	User.findByIdAndUpdate(req.user.id, updates, {new: true})
+	.then(updatedUser => res.send(updatedUser))
+	.catch(err => res.send(err));
+};
+
+// Delete A User
+module.exports.deleteUser = (req, res) => {
+
+	User.findByIdAndDelete(req.params.id)
 	.then(result => res.send(result))
 	.catch(err => res.send(err));
 };

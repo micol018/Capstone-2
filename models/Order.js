@@ -7,26 +7,25 @@ let orderSchema = new mongoose.Schema({
 		required: [true, "User ID is required"]
 	},
 
-	productId: {
-		type: String,
-		required: [true, "Product ID is required"]
-	},
+	products: [
+		{
+			productId: {
+				type: String,
+				required: [true, "Product ID is required"]
+			}
+		}
+	],
 
 	totalAmount: {
 		type: Number,
 		required: [true, "Total Amount is required"]
 	},
 
-	isPaid: {
-		type: Boolean,
-		default: false
+	status: {
+		type: String,
+		default: "Pending"
 	},
-
-	isDelivered: {
-		type: Boolean,
-		default: false
-	},
-
+	
 	purchasedOn: {
 		type: Date,
 		default: new Date()
