@@ -9,6 +9,11 @@ const auth = require("../auth");
 const {verify, verifyAdmin} = auth;
 
 // Routes
+// Create Order
+router.post("/", verify, orderControllers.order);
+
+// Add Product To Orders
+router.post("/addToOrder", verify, orderControllers.addToOrder);
 
 
 module.exports = router;
