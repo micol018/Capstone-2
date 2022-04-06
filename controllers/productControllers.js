@@ -108,3 +108,45 @@ module.exports.deleteProduct = (req, res) => {
 	.catch(err => res.send(err));
 };
 
+// Find Products By Name
+module.exports.findProductsByName = (req, res) => {
+
+	Product.find({name: {$regex: req.body.name, $options: '$i'}})
+	.then(result => {
+		if(result.length === 0){
+			return res.send("No product found")
+		}else{
+			return res.send(result)
+		}
+	})
+	.catch(err => res.send(err));
+};
+
+// Find Products By Price
+module.exports.findProductsByPrice = (req, res) => {
+
+	Product.find({price: req.body.price})
+	.then(result => {
+		if(result.length === 0){
+			return res.send("No product found")
+		}else{
+			return res.send(result)
+		}
+	})
+	.catch(err => res.send(err));
+};
+
+// Find Products By Category
+module.exports.findProductsByCategory = (req, res) => {
+
+	Product.find({category: {$regex: req.body.category, $options: '$i'}})
+	.then(result => {
+		if(result.length === 0){
+			return res.send("No product found")
+		}else{
+			return res.send(result)
+		}
+	})
+	.catch(err => res.send(err));
+};
+

@@ -12,13 +12,20 @@ let orderSchema = new mongoose.Schema({
 			productId: {
 				type: String,
 				required: [true, "Product ID is required"]
+			},
+			productName: {
+				type: String
+			},
+			price: {
+				type: Number,
+				required: [true, "Price is required"]
 			}
 		}
 	],
 
 	totalAmount: {
 		type: Number,
-		// required: [true, "Total Amount is required"]
+		default: 0
 	},
 
 	status: {

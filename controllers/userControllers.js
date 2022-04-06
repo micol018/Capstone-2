@@ -8,7 +8,6 @@ const User = require("../models/User");
 const auth = require("../auth");
 
 // Controllers
-
 // User Registration
 module.exports.registerUser = (req, res) => {
 

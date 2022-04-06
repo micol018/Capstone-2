@@ -36,5 +36,13 @@ router.get("/getInactiveProducts", verify, verifyAdmin, productControllers.getIn
 // Delete A Product
 router.delete("/deleteProduct/:id", verify, verifyAdmin, productControllers.deleteProduct);
 
+// Find Product By Name
+router.post("/findProductsByName", productControllers.findProductsByName);
+
+// Find Product By Price
+router.post("/findProductsByPrice", productControllers.findProductsByPrice);
+
+// Find Product By Category
+router.post("/findProductsByCategory", productControllers.findProductsByCategory);
 
 module.exports = router;
