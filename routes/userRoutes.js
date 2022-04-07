@@ -22,7 +22,7 @@ router.put("/updateAdmin/:id", verify, verifyAdmin, userControllers.updateAdmin)
 router.get("/", verify, verifyAdmin, userControllers.getAllUsers);
 
 // Get Single User
-router.get("/:id", verify, verifyAdmin, userControllers.getSingleUser);
+router.get("/:id", verify, userControllers.getSingleUser);
 
 // Get Logged In User Details
 router.get("/getUserDetails", verify, userControllers.getUserDetails);

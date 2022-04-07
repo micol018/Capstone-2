@@ -8,7 +8,7 @@ const productRoutes = require('./routes/productRoutes');
 const orderRoutes = require('./routes/orderRoutes');
 
 const app = express();
-const port = 4000;
+const port = process.env.PORT || 4000;
 
 mongoose.connect("mongodb+srv://admin_pableo:admin169@pableo-169.meswe.mongodb.net/EcommerceAPI169?retryWrites=true&w=majority", 
 	{

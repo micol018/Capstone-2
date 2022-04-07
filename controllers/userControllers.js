@@ -26,7 +26,7 @@ module.exports.registerUser = (req, res) => {
 
 	newUser.save()
 	.then(user => res.send(user))
-	.catch(err => res.send(err));
+	.catch(err => res.send("Email Already Taken"));
 };
 
 // Log In
